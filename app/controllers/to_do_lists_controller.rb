@@ -1,5 +1,6 @@
 class ToDoListsController < ApplicationController
   def index
+    @to_do_lists = ToDoList.all
   end
 
   def new
@@ -19,6 +20,33 @@ class ToDoListsController < ApplicationController
 
   def show
     @to_do_list = ToDoList.find(params[:id])
+  end
+
+  def edit
+    @to_do_list = ToDoList.find(params[:id])
+  end
+
+  def update
+    @to_do_list = ToDoList.find(params[:id])
+    if @to_do_list.update(to_do_list_params)
+      flash[:success] = 'To do list updated successfully'
+      render :show
+    else
+      flash[:error] = 'There is a problem updating the to-do list'
+      render :edit
+    end
+  end
+
+  def destroy
+    @to_do_list = ToDoList.find(params[:id])
+    if @to_do_list.delete
+      flash[:success] = 'To do list deleted successfully'
+      redirect_to root_path
+    else
+      flash[:error] = 'There is a problem deleting the to-do list'
+      render :show
+    end
+
   end
 
   private

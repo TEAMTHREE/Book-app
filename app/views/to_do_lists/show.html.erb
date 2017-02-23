@@ -1,3 +1,4 @@
 <h1>
   <%= @to_do_list.name %>
+  <%= link_to("delete", to_do_list_path(@to_do_list.id), method: :delete) %>
 </h1>
