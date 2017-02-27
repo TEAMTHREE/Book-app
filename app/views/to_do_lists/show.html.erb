@@ -1,5 +1,6 @@
 <h1>
   <%= @to_do_list.name %>
-  <%= link_to("delete", to_do_list_path(@to_do_list.id), method: :delete) %>
-  <%= link_to("edit", edit_to_do_list_path(@to_do_list.id)) %>
+  <%= button_to("delete", to_do_list_path(@to_do_list.id), method: :delete) %>
+  <%= button_to("edit", edit_to_do_list_path(@to_do_list.id), method: :get) %>
+  <%= button_to("back", to_do_lists_path, method: :get) %>
 </h1>
