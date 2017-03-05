@@ -1,0 +1,2 @@
+class ToDoSublist < ApplicationRecord
+end
